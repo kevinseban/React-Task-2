@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import Output from './Output';
 import Button from './Button';
+import History from './History';
 
 function Calculator() {
     const [currentCalculation, setCurrentCalculation] = useState('');
+    const [history, setHistory] = useState([]);
 
     const handleButtonClick = (value) => {
         setCurrentCalculation((prevCalculation) => prevCalculation + value);
@@ -13,6 +15,11 @@ function Calculator() {
         try {
             const result = eval(currentCalculation);
             setCurrentCalculation(result.toString());
+
+            setHistory((prevHistory) => {
+                const newHistory = [currentCalculation, ...prevHistory];
+                return newHistory.slice(0, 5);
+            });
         } catch (error) {
             setCurrentCalculation('Error');
         }
@@ -20,12 +27,14 @@ function Calculator() {
 
     const handleClear = () => {
         setCurrentCalculation('');
+        setHistory([]);
     };
 
     return (
-        <div>
+        <div className='calculator'>
             <Output value={currentCalculation} />
-            <div className='button-group'>
+            <History expressions={history} />
+            <div>
                 <div>
                     <Button onClick={handleButtonClick} label="7" />
                     <Button onClick={handleButtonClick} label="8" />

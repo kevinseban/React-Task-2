@@ -1,6 +1,6 @@
 .App {
-  text-align: center;
-  margin-top: 100px;
+  height: 100vmin;
+  background: linear-gradient(to right, skyblue, lightgreen);
 }
 
 .btn {
@@ -23,14 +23,15 @@
   background-color: rgb(16, 100, 151);
   box-sizing: border-box;
   text-align: end;
-  padding: 10px;
+  padding: 10px 15px;
   width: 200px;
-  height: 100px;
+  height: 30px;
   border: none;
   color: white;
   font-size: large;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+  margin-top: 150px;
 }
 
 .rounded-right {
@@ -39,4 +40,23 @@
 
 .rounded-left {
   border-bottom-left-radius: 15px;
+}
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.history-container {
+  background-color: rgb(16, 100, 151);
+  box-sizing: border-box;
+  text-align: end;
+  padding: 10px 15px;
+  width: 200px;
+  height: 100px;
+  border: none;
+  color: white;
+  font-size: x-small;
 }
